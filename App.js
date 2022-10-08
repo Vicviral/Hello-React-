@@ -20,7 +20,7 @@ export default function App() {
   function addUserGoal() {
     setGoals((previousGoals) => [
       ...previousGoals,
-      { text: enteredGoalText, key: Math.random().toString },
+      { text: enteredGoalText, id: Math.random().toString },
     ]);
   }
 
@@ -44,6 +44,10 @@ export default function App() {
               </View>
             );
           }}
+          keyExtractor={(item, index) => {
+            return item.id;
+          }}
+          alwaysBounceVertical={false}
         />
       </View>
     </View>
